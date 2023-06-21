@@ -27,11 +27,16 @@ height: 400px;
     letter-spacing: -1px;
     margin-bottom: 30px;
 }
+.article-actions{
+    border-top: 1px solid #eaeaea;
+    padding-top: 5px;
+}
 footer{
-    margin-top: 55px;
-padding-top: 5 px;
-border-top: 1 px solid;
-color: #777;
+    
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid #eaeaea;
+    color: #777;
 }
  footer a:hover{
     color: #222;
