@@ -15,7 +15,7 @@ end
         #if items and description are empty it will go to new.html
         if @article.save
                        #display a notice
-            flash[:notice] = "Article was successfully created."
+            flash[:success] = "Article was successfully created."
             redirect_to article_path (@article)
         else
            render(:new , status: :unprocessable_entity) 
@@ -24,7 +24,7 @@ end
     def update
        
         if @article.update(article_params)
-            flash[:notice] = "Article is updated successfully"
+            flash[:success] = "Article is updated successfully"
             redirect_to article_path(@article)
 
         else
@@ -38,7 +38,7 @@ end
     def destroy
     
     @article.destroy
-    flash[:notice] = "Article is deleted successfully"
+    flash[:danger] = "Article is deleted successfully"
     redirect_to articles_path
     end
 
