@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+    
     before_action :set_article, only:[:edit, :update, :show, :destroy]
     def index
     @articles =Article.all
@@ -12,6 +13,7 @@ end
 
     def create
         @article = Article.new(article_params)
+        @article.user = User.first
         #if items and description are empty it will go to new.html
         if @article.save
                        #display a notice

@@ -11,16 +11,17 @@
   </head>
 
   <body>
-     
-        <%= render'layouts/navigation'%>
-      <%= render'layouts/messages'%>
-
-
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+       <% if user_signed_in? %>
+                 <%= render'layouts/navigation'%>
+                 <%= render'layouts/messages'%>
+    <%else%>
+      <a href="/users/sign_in">Sign In </a>
+        <%end%>
      <div class =container>
-     
-
-        <%= yield %>
-        <%= render'layouts/footer'%>
+          <%= yield %>
+           <%= render'layouts/footer'%>
     </div>
     
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
