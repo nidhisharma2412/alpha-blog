@@ -81,3 +81,5 @@ gem "jsbundling-rails", "~> 1.1"
 
 
 gem "devise", "~> 4.9"
+gem 'will_paginate', '~> 3.3', '>= 3.3.1'
+gem 'bootstrap-will_paginate', '~> 1.0'
