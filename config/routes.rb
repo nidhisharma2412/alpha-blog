@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   resources :articles
   
-  resources :users, only: [:show, :edit, :update]
+  resources :users
   # Defines the root path route ("/")
   # root "articles#index"
 end
