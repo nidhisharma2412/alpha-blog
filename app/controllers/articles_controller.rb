@@ -57,7 +57,7 @@ end
     end
 
     def require_user
-    if user_signed_in?
+    if user_signed_in? || !current_user.admin?
         flash[:danger] = "you must be logged in before that action "
         redirect_to root_path
     end

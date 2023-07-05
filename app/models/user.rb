@@ -5,5 +5,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 #One-to Many association
-  has_many :articles   
+  has_many :articles, :dependent =>:destroy
 end

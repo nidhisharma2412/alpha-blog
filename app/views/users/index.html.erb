@@ -11,11 +11,13 @@
                     </li>
                     <li>
                         <small><%= pluralize(user.articles.count, "article") if user.articles %></small>
-                        <% user_signed_in? and current_user.admin? %>
-                        <li><%= link_to "Delete this user", user_path(user),
-                                   data:{turbo_method: :delete,turbo_confirm: 'Are you sure you want to delete this user and all their articles'} %></li>
+                        <% if user_signed_in? and current_user.admin? %>
+                        <li><%=button_to "Delete this user", user_path(user),method: :delete,
+                        data: {
+                        'turbo-confirm': 'Are you sure you want to delete this user and all their articles'} %></li>
 
                     </li>
+                    <% end %>
                 </div>
             </div>
     </ul>
