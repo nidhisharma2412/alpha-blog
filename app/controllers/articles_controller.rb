@@ -47,6 +47,19 @@ end
     redirect_to articles_path
     end
 
+    def require_user
+        if !user_signed_in? 
+            flash[:danger] = "you must be logged in before that action "
+            redirect_to root_path
+        end
+        end
+    
+    def require_same_user
+        if current_user != @article.user and !current_user.admin?
+            flash[:danger] = "You can only delete or edit your own article"
+            redirect_to root_path
+        end
+    end
     
     private
     def set_article
@@ -56,18 +69,5 @@ end
         params.require(:article).permit( :title,:description)
     end
 
-    def require_user
-    if user_signed_in? || !current_user.admin?
-        flash[:danger] = "you must be logged in before that action "
-        redirect_to root_path
-    end
-    end
-
-def require_same_user
-    if current_user != @article.user and !current_user.admin?
-        flash[:danger] = "You can only delete or edit your own article"
-        redirect_to root_path
-    end
-end
 
 end

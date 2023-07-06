@@ -32,29 +32,28 @@ def destroy
     flash[:danger] = "User and all articles have been deleted"
     redirect_to users_path
 end
-
-private
-    def user_params
-        params.require(:user).permit(:username, :email, :password)
-    end
-
 def require_same_user
-   if current_user != @user and !current_user.admin?
-        flash[:danger]= "you can only edit your own account"
-        redirect_to root_path
-    end
+    if current_user != @user and !current_user.admin?
+         flash[:danger]= "you can only edit your own account"
+         redirect_to root_path
+     end
 end
-
-
 
 def require_admin
     if user_signed_in? and !current_user.admin?
         flash[:danger] = "Only admin can perform that action"
         redirect_to root_path
     end
-    
 end
+private
+    def user_params
+        params.require(:user).permit(:username, :email, :password)
+    end
 end
+
+
+
+
 
 
 
